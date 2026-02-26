@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Spass Converter"
+rootProject.name = "SPASS Converter"
 include(":app")

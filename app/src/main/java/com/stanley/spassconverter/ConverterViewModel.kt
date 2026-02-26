@@ -14,9 +14,9 @@ data class ConversionState(
     val fileName: String? = null,
     val fileSize: Long = 0,
     val isProcessing: Boolean = false,
-    val googleCsv: String? = null,
     val fullCsv: String? = null,
     val summary: String = "",
+    val totalEntries: Int = 0,
     val error: String? = null
 )
 
@@ -34,7 +34,7 @@ class ConverterViewModel : ViewModel() {
 
     fun convert(password: String) {
         val bytes = fileBytes ?: return
-        _state.update { it.copy(isProcessing = true, error = null, googleCsv = null, fullCsv = null) }
+        _state.update { it.copy(isProcessing = true, error = null, fullCsv = null) }
 
         viewModelScope.launch(Dispatchers.Default) {
             try {
@@ -48,15 +48,14 @@ class ConverterViewModel : ViewModel() {
                     return@launch
                 }
 
-                val googleCsv = CsvExporter.exportGooglePasswords(data)
                 val fullCsv = CsvExporter.exportAll(data)
 
                 _state.update {
                     it.copy(
                         isProcessing = false,
-                        googleCsv = googleCsv,
                         fullCsv = fullCsv,
-                        summary = data.summary()
+                        summary = data.summary(),
+                        totalEntries = data.totalEntries
                     )
                 }
             } catch (e: SPassDecryptor.WrongPasswordException) {
@@ -80,7 +79,7 @@ class ConverterViewModel : ViewModel() {
     }
 
     fun clearSensitiveOutput() {
-        _state.update { it.copy(googleCsv = null, fullCsv = null) }
+        _state.update { it.copy(fullCsv = null) }
     }
 
     fun reset() {

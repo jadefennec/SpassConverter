@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- ── Backgrounds ── -->
+    <color name="bg_page">#F0EDE8</color>
+    <color name="bg_surface">#FAF9F7</color>
+    <color name="bg_field">#F2EEEA</color>
+    <color name="bg_upload_zone">#F5F2EF</color>
+    <color name="bg_success_zone">#F0F7F2</color>
+    <color name="bg_stat_chip">#FFFFFF</color>
+    <color name="bg_file_card">#FFFFFF</color>
+    <color name="bg_upload_icon">#EEEAE6</color>
+    <color name="bg_privacy_chip">#FFFFFF</color>
+
+    <!-- ── Borders ── -->
+    <color name="border_default">#E4DFD9</color>
+    <color name="border_upload_dash">#D4CDC7</color>
+    <color name="border_success">#D4E8DA</color>
+    <color name="border_stat">#DCE8E3</color>
+
+    <!-- ── Text ── -->
+    <color name="text_primary">#1E1C1A</color>
+    <color name="text_secondary">#8A827A</color>
+    <color name="text_tertiary">#B0A89F</color>
+    <color name="text_hint_color">#C8C0B8</color>
+    <color name="text_label">#B0A8A0</color>
+    <color name="text_success_title">#1A3A26</color>
+    <color name="text_success_sub">#7AAA8E</color>
+    <color name="text_stat_num">#2D7A4E</color>
+    <color name="text_stat_label">#9ABFAA</color>
+    <color name="text_file_name">#2A2420</color>
+    <color name="text_file_meta">#B0A898</color>
+    <color name="text_privacy">#88B89A</color>
+    <color name="text_btn_secondary">#A09890</color>
+    <color name="text_disclaimer">#C8C0B8</color>
+
+    <!-- ── Icons ── -->
+    <color name="icon_upload">#A09890</color>
+    <color name="icon_field">#C0B8B0</color>
+    <color name="icon_success">#2D8A52</color>
+    <color name="icon_file">#5AAA7A</color>
+    <color name="icon_privacy">#7AAA8E</color>
+    <color name="icon_chevron">#C8BFB8</color>
+
+    <!-- ── Accent shapes ── -->
+    <color name="check_circle_bg">#D4EEDC</color>
+    <color name="file_icon_bg">#F0F7F2</color>
+
+    <!-- ── Buttons ── -->
+    <color name="btn_primary_bg">#2D2926</color>
+    <color name="btn_primary_text">#F5F2EF</color>
+    <color name="btn_secondary_border">#E0DBD5</color>
+    <color name="btn_secondary_text">#A09890</color>
+
+    <!-- ── System ── -->
+    <color name="home_bar">#1A000000</color>
+
+    <!-- Keep for compatibility -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +63,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
 </resources>

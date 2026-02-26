@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="screen_padding_horizontal">22dp</dimen>
+
+    <!-- Corner radii -->
+    <dimen name="corner_upload_zone">20dp</dimen>
+    <dimen name="corner_field">14dp</dimen>
+    <dimen name="corner_btn_primary">16dp</dimen>
+    <dimen name="corner_btn_secondary">14dp</dimen>
+    <dimen name="corner_success_card">20dp</dimen>
+    <dimen name="corner_stat_chip">12dp</dimen>
+    <dimen name="corner_file_card">16dp</dimen>
+    <dimen name="corner_upload_icon">14dp</dimen>
+    <dimen name="corner_file_icon">12dp</dimen>
+    <dimen name="corner_privacy_chip">12dp</dimen>
+
+    <!-- Heights and sizes -->
+    <dimen name="height_upload_zone">148dp</dimen>
+    <dimen name="height_field">50dp</dimen>
+    <dimen name="height_btn_primary">54dp</dimen>
+    <dimen name="height_btn_secondary">44dp</dimen>
+    <dimen name="size_upload_icon_box">44dp</dimen>
+    <dimen name="size_check_circle">38dp</dimen>
+    <dimen name="size_file_icon_box">42dp</dimen>
+    <dimen name="size_upload_icon">20dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="space_section">28dp</dimen>
+    <dimen name="space_field_gap">18dp</dimen>
+    <dimen name="space_card_gap">16dp</dimen>
+
+</resources>

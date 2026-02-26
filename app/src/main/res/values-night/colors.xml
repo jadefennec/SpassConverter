@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ── Backgrounds ── -->
+    <color name="bg_page">#0E0E12</color>
+    <color name="bg_surface">#111116</color>
+    <color name="bg_field">#16161F</color>
+    <color name="bg_upload_zone">#0D0D14</color>
+    <color name="bg_success_zone">#12171A</color>
+    <color name="bg_stat_chip">#0D1A12</color>
+    <color name="bg_file_card">#16161F</color>
+    <color name="bg_upload_icon">#1E1E2E</color>
+    <color name="bg_privacy_chip">#0D1A12</color>
+
+    <!-- ── Borders ── -->
+    <color name="border_default">#1E1E2C</color>
+    <color name="border_upload_dash">#2A2A3E</color>
+    <color name="border_success">#1A2A20</color>
+    <color name="border_stat">#162214</color>
+
+    <!-- ── Text ── -->
+    <color name="text_primary">#E8E8F0</color>
+    <color name="text_secondary">#4E4E6A</color>
+    <color name="text_tertiary">#3E3E56</color>
+    <color name="text_hint_color">#28283C</color>
+    <color name="text_label">#3C3C54</color>
+    <color name="text_success_title">#C8F0D4</color>
+    <color name="text_success_sub">#304A38</color>
+    <color name="text_stat_num">#7ED4A0</color>
+    <color name="text_stat_label">#2A4432</color>
+    <color name="text_file_name">#9898B8</color>
+    <color name="text_file_meta">#3E3E56</color>
+    <color name="text_privacy">#2E5040</color>
+    <color name="text_btn_secondary">#3E3E56</color>
+    <color name="text_disclaimer">#28283A</color>
+
+    <!-- ── Icons ── -->
+    <color name="icon_upload">#6C6C8E</color>
+    <color name="icon_field">#3A3A52</color>
+    <color name="icon_success">#4ADE80</color>
+    <color name="icon_file">#5AAA7A</color>
+    <color name="icon_privacy">#3A6A4E</color>
+    <color name="icon_chevron">#3A3A52</color>
+
+    <!-- ── Accent shapes ── -->
+    <color name="check_circle_bg">#1E3526</color>
+    <color name="file_icon_bg">#1A2E22</color>
+
+    <!-- ── Buttons — lime accent in dark mode ── -->
+    <color name="btn_primary_bg">#C8F564</color>
+    <color name="btn_primary_text">#0E1A00</color>
+    <color name="btn_secondary_border">#1E1E2C</color>
+    <color name="btn_secondary_text">#3E3E56</color>
+
+    <!-- ── System ── -->
+    <color name="home_bar">#1EFFFFFF</color>
+
+</resources>

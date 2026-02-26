@@ -2,29 +2,6 @@ package com.stanley.spassconverter
 
 object CsvExporter {
 
-    fun exportGooglePasswords(data: SPassData): String? {
-        if (data.passwords.isEmpty()) return null
-        val sb = StringBuilder()
-        sb.appendLine("name,url,username,password,note")
-        for (p in data.passwords) {
-            val resolvedUrl = AppUrlMapper.resolveUrl(p)
-            val resolvedName = AppUrlMapper.resolveName(p)
-
-            val note = if (p.isAppPassword) {
-                val pkg = extractPackageFromUri(p.url)
-                buildString {
-                    if (p.note.isNotBlank()) append(p.note).append(" | ")
-                    append("App: $pkg")
-                }
-            } else {
-                p.note
-            }
-
-            sb.appendLine(csvRow(resolvedName, resolvedUrl, p.username, p.password, note))
-        }
-        return sb.toString()
-    }
-
     fun exportAll(data: SPassData): String {
         val sb = StringBuilder()
 
