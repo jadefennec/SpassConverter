@@ -1,0 +1,23 @@
+SPASS Converter lets you convert Samsung Pass export files (.spass) to CSV format directly on your Android device. No account, no sign‑in, no internet—everything runs locally.
+
+WHAT IT DOES
+• Import your Samsung Pass export file (.spass)
+• Enter the password you set when exporting from Samsung Pass
+• Convert to standard CSV that works with Bitwarden, 1Password, KeePass, and other password managers
+• Preview and share the CSV to your preferred app or cloud backup
+
+FULLY OFFLINE
+The app never connects to the internet. All processing happens on your device. Your Samsung Pass export and password are never transmitted anywhere. No data is collected, stored, or shared with third parties.
+
+HOW TO EXPORT FROM SAMSUNG PASS
+1. Open Samsung Pass on your device
+2. Go to Settings → Export or Back up data
+3. Choose to export your passwords and follow the prompts
+4. Save the .spass file and remember the password you set
+5. Open SPASS Converter, select the file, enter the password, and get your CSV
+
+COMPATIBILITY
+The CSV output is compatible with popular password managers such as Bitwarden, 1Password, KeePass, LastPass, and similar tools that accept CSV imports.
+
+PRIVACY
+Your data stays on your device. We do not collect or transmit anything. See our Privacy Policy for full details.

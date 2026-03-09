@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play Console — SPASS Converter</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 16px; background: #1a1a1a; color: #e0e0e0; min-height: 100vh; }
+    .container { display: flex; gap: 24px; max-width: 1400px; margin: 0 auto; }
+    .col { flex: 1; min-width: 0; }
+    .col.steps { max-width: 380px; }
+    h1 { font-size: 1.1em; color: #fff; margin: 0 0 16px; }
+    .step { background: #2a2a2a; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; font-size: 13px; line-height: 1.4; }
+    .step.num { font-weight: 600; color: #7aaa8e; margin-bottom: 4px; }
+    .value { background: #252525; border: 1px solid #3a3a3a; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; font-size: 12px; line-height: 1.5; font-family: ui-monospace, monospace; white-space: pre-wrap; word-break: break-all; }
+    .value.copy { cursor: pointer; }
+    .value.copy:hover { border-color: #7aaa8e; }
+    .section { margin-bottom: 24px; }
+    .section h2 { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="col steps">
+      <h1>Steps</h1>
+      <div class="section">
+        <h2>Create app</h2>
+        <div class="step"><span class="num">1.</span> Create app → Enter name</div>
+        <div class="step"><span class="num">2.</span> Default language</div>
+        <div class="step"><span class="num">3.</span> App (not Game)</div>
+        <div class="step"><span class="num">4.</span> Free</div>
+        <div class="step"><span class="num">5.</span> Accept policies, Create</div>
+      </div>
+      <div class="section">
+        <h2>Main store listing</h2>
+        <div class="step"><span class="num">6.</span> Short description</div>
+        <div class="step"><span class="num">7.</span> Full description</div>
+        <div class="step"><span class="num">8.</span> App icon 512×512</div>
+        <div class="step"><span class="num">9.</span> Feature graphic 1024×500</div>
+        <div class="step"><span class="num">10.</span> Screenshots (2)</div>
+      </div>
+      <div class="section">
+        <h2>Content rating</h2>
+        <div class="step"><span class="num">11.</span> Start questionnaire → Utility</div>
+        <div class="step"><span class="num">12.</span> Answer all No (violence, etc.)</div>
+        <div class="step"><span class="num">13.</span> Sensitive data: local only</div>
+      </div>
+      <div class="section">
+        <h2>Data safety</h2>
+        <div class="step"><span class="num">14.</span> Collect/share data: No</div>
+        <div class="step"><span class="num">15.</span> Encryption in transit: No</div>
+        <div class="step"><span class="num">16.</span> Data deletion: Yes</div>
+      </div>
+      <div class="section">
+        <h2>Ads</h2>
+        <div class="step"><span class="num">17.</span> No ads</div>
+      </div>
+      <div class="section">
+        <h2>Target audience</h2>
+        <div class="step"><span class="num">18.</span> 18 and over</div>
+        <div class="step"><span class="num">19.</span> Not for children</div>
+      </div>
+      <div class="section">
+        <h2>Privacy policy</h2>
+        <div class="step"><span class="num">20.</span> Paste URL</div>
+      </div>
+      <div class="section">
+        <h2>App access</h2>
+        <div class="step"><span class="num">21.</span> All functionality without special access</div>
+      </div>
+    </div>
+    <div class="col">
+      <h1>Paste / select</h1>
+      <div class="section">
+        <h2>Create app</h2>
+        <div class="value" onclick="navigator.clipboard.writeText(this.textContent)">SPASS Converter</div>
+        <div class="value">English (United States)</div>
+        <div class="value">App</div>
+        <div class="value">Free</div>
+      </div>
+      <div class="section">
+        <h2>Short description</h2>
+        <div class="value copy" onclick="navigator.clipboard.writeText(this.textContent)" title="Click to copy">Convert Samsung Pass exports to CSV. Fully offline—nothing leaves your device.</div>
+      </div>
+      <div class="section">
+        <h2>Full description</h2>
+        <div class="value copy" onclick="navigator.clipboard.writeText(this.textContent)" title="Click to copy">SPASS Converter lets you convert Samsung Pass export files (.spass) to CSV format directly on your Android device. No account, no sign‑in, no internet—everything runs locally.
+
+WHAT IT DOES
+• Import your Samsung Pass export file (.spass)
+• Enter the password you set when exporting from Samsung Pass
+• Convert to standard CSV that works with Bitwarden, 1Password, KeePass, and other password managers
+• Preview and share the CSV to your preferred app or cloud backup
+
+FULLY OFFLINE
+The app never connects to the internet. All processing happens on your device. Your Samsung Pass export and password are never transmitted anywhere. No data is collected, stored, or shared with third parties.
+
+HOW TO EXPORT FROM SAMSUNG PASS
+1. Open Samsung Pass on your device
+2. Go to Settings → Export or Back up data
+3. Choose to export your passwords and follow the prompts
+4. Save the .spass file and remember the password you set
+5. Open SPASS Converter, select the file, enter the password, and get your CSV
+
+COMPATIBILITY
+The CSV output is compatible with popular password managers such as Bitwarden, 1Password, KeePass, LastPass, and similar tools that accept CSV imports.
+
+PRIVACY
+Your data stays on your device. We do not collect or transmit anything. See our Privacy Policy for full details.</div>
+      </div>
+      <div class="section">
+        <h2>Files to upload</h2>
+        <div class="value">App icon: store-assets\app-icon-512.png
+(Compress at TinyPNG if &gt;1MB)</div>
+        <div class="value">Feature graphic: store-assets\feature-graphic-1024x500.png</div>
+        <div class="value">Screenshots: your 2 phone screenshots</div>
+      </div>
+      <div class="section">
+        <h2>Privacy policy URL</h2>
+        <div class="value copy" onclick="navigator.clipboard.writeText(this.textContent)" title="Click to copy">https://stanley-projects.github.io/SpassConverter/</div>
+      </div>
+      <div class="section">
+        <h2>Data / ads / audience</h2>
+        <div class="value">Collect data: No | Encryption: No | Deletion: Yes</div>
+        <div class="value">Ads: No</div>
+        <div class="value">Target: 18+ | Not for children</div>
+      </div>
+      <div class="section">
+        <h2>App access</h2>
+        <div class="value">All or most functionality accessible without special access</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
