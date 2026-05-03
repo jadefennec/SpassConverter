@@ -1,0 +1,21 @@
+SPASS Converter lets you migrate your saved passwords out of Samsung Pass and into any standard password manager.
+
+Pick your encrypted .spass export file, enter your Samsung Pass password, and the app decrypts it locally and produces a CSV file you can import into Bitwarden, 1Password, KeePass, or any other tool that accepts CSV imports.
+
+PRIVACY FIRST
+• No internet connection — ever. All network permissions are explicitly blocked in the manifest.
+• No analytics, no crash reporting, no third-party SDKs.
+• Your passwords never leave your device. The .spass file is decrypted entirely in memory and the CSV is written directly to wherever you choose to save it.
+• Sensitive state (password, decrypted data) is cleared automatically when you leave the app.
+
+FEATURES
+• Decrypts Samsung Pass .spass export files
+• Exports logins, credit cards, and addresses to CSV
+• UTF-8 BOM in output for correct display in Excel and Google Sheets
+• Tap-to-preview the converted CSV before saving
+• Resolves app package names to human-readable service names and URLs
+• Material 3 UI, supports dark mode and large screens
+• Android 8.0+ (API 26)
+
+OPEN SOURCE
+Source code is available on GitHub under the MIT License.

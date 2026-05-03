@@ -94,6 +94,7 @@ object AppUrlMapper {
 
         // Shopping
         "com.amazon.mShop.android.shopping" to "https://www.amazon.com",
+        "com.rfi.sams.android" to "https://www.samsclub.com",
         "com.ebay.mobile" to "https://www.ebay.com",
         "com.alibaba.aliexpresshd" to "https://www.aliexpress.com",
         "com.shopee.id" to "https://shopee.com",
@@ -160,6 +161,7 @@ object AppUrlMapper {
         "com.google.android.apps.authenticator2" to "Google Authenticator",
         "com.amazon.avod.thirdpartyclient" to "Prime Video",
         "com.amazon.mShop.android.shopping" to "Amazon",
+        "com.rfi.sams.android" to "Sam's Club",
         "org.thoughtcrime.securesms" to "Signal",
         "com.squareup.cash" to "Cash App",
         "com.ubercab.eats" to "Uber Eats",

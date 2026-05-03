@@ -17,7 +17,8 @@ data class ConversionState(
     val fullCsv: String? = null,
     val summary: String = "",
     val totalEntries: Int = 0,
-    val error: String? = null
+    val error: String? = null,
+    val password: String = ""
 )
 
 class ConverterViewModel : ViewModel() {
@@ -29,11 +30,16 @@ class ConverterViewModel : ViewModel() {
 
     fun setFile(bytes: ByteArray, name: String, size: Long) {
         fileBytes = bytes
-        _state.value = ConversionState(fileName = name, fileSize = size)
+        _state.update { it.copy(fileName = name, fileSize = size, fullCsv = null, error = null, isProcessing = false) }
     }
 
-    fun convert(password: String) {
+    fun setPassword(password: String) {
+        _state.update { it.copy(password = password) }
+    }
+
+    fun convert() {
         val bytes = fileBytes ?: return
+        val password = _state.value.password
         _state.update { it.copy(isProcessing = true, error = null, fullCsv = null) }
 
         viewModelScope.launch(Dispatchers.Default) {
@@ -82,10 +88,15 @@ class ConverterViewModel : ViewModel() {
         _state.update { it.copy(fullCsv = null) }
     }
 
-    fun reset() {
+    /** Clears all sensitive data when the user leaves the app (Home, Back, app switch). */
+    fun clearOnUserLeave() {
         fileBytes?.let { Arrays.fill(it, 0.toByte()) }
         fileBytes = null
         _state.value = ConversionState()
+    }
+
+    fun reset() {
+        clearOnUserLeave()
     }
 
     override fun onCleared() {

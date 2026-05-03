@@ -10,15 +10,21 @@ val keystoreProperties = Properties().apply {
     if (keystorePropertiesFile.exists()) load(keystorePropertiesFile.inputStream())
 }
 
+val hasSigningConfig = keystoreProperties.containsKey("RELEASE_STORE_FILE") &&
+    keystoreProperties.containsKey("RELEASE_STORE_PASSWORD") &&
+    keystoreProperties.containsKey("RELEASE_KEY_PASSWORD")
+
 android {
     namespace = "com.stanley.spassconverter"
 
-    signingConfigs {
-        create("release") {
-            storeFile = file("C:/Users/HP/Coding Projects/Android Key Stores/Spass Converter/Spass Converter Key")
-            storePassword = keystoreProperties["RELEASE_STORE_PASSWORD"] as String?
-            keyAlias = "spassconverter-key (password is the main strong one)"
-            keyPassword = keystoreProperties["RELEASE_KEY_PASSWORD"] as String?
+    if (hasSigningConfig) {
+        signingConfigs {
+            create("release") {
+                storeFile = file(keystoreProperties["RELEASE_STORE_FILE"] as String)
+                storePassword = keystoreProperties["RELEASE_STORE_PASSWORD"] as String
+                keyAlias = "spassconverter-key (password is the main strong one)"
+                keyPassword = keystoreProperties["RELEASE_KEY_PASSWORD"] as String
+            }
         }
     }
     compileSdk {
@@ -31,15 +37,17 @@ android {
         applicationId = "com.stanley.spassconverter"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            if (hasSigningConfig) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(

@@ -2,8 +2,10 @@ package com.stanley.spassconverter
 
 object CsvExporter {
 
+    private const val UTF8_BOM = "\uFEFF"
+
     fun exportAll(data: SPassData): String {
-        val sb = StringBuilder()
+        val sb = StringBuilder().append(UTF8_BOM)
 
         if (data.passwords.isNotEmpty()) {
             sb.appendLine("name,url,username,password,note")

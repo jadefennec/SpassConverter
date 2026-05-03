@@ -57,7 +57,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -117,6 +117,22 @@ import java.io.File
 import java.text.DecimalFormat
 
 class MainActivity : ComponentActivity() {
+    private var skipClearOnNextUserLeaveHint = false
+
+    fun markAppInitiatedExternalNavigation() {
+        skipClearOnNextUserLeaveHint = true
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        if (skipClearOnNextUserLeaveHint) {
+            skipClearOnNextUserLeaveHint = false
+            return
+        }
+        ViewModelProvider(this)[ConverterViewModel::class.java].clearOnUserLeave()
+        File(cacheDir, "passwords_export.csv").delete()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -124,10 +140,8 @@ class MainActivity : ComponentActivity() {
             WindowManager.LayoutParams.FLAG_SECURE
         )
 
-        val vm = ViewModelProvider(this)[ConverterViewModel::class.java]
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStop(owner: LifecycleOwner) {
-                vm.clearSensitiveOutput()
                 File(cacheDir, "passwords_export.csv").delete()
             }
         })
@@ -145,8 +159,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun SPassConverterApp(viewModel: ConverterViewModel = viewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    var password by rememberSaveable { mutableStateOf("") }
-    var passwordVisible by rememberSaveable { mutableStateOf(false) }
+    var passwordVisible by remember { mutableStateOf(false) }
     val context = androidx.compose.ui.platform.LocalContext.current
 
     val filePicker = rememberLauncherForActivityResult(
@@ -185,11 +198,13 @@ fun SPassConverterApp(viewModel: ConverterViewModel = viewModel()) {
         when {
             state.fullCsv != null -> SuccessScreen(
                 state = state,
-                onSave = { csvSaver.launch("spass_export.csv") },
+                onSave = {
+                    (context as? MainActivity)?.markAppInitiatedExternalNavigation()
+                    csvSaver.launch("spass_export.csv")
+                },
                 onConvertAnother = {
                     File(context.cacheDir, "passwords_export.csv").delete()
                     viewModel.reset()
-                    password = ""
                 },
                 onPreview = {
                     val csv = state.fullCsv ?: return@SuccessScreen
@@ -200,17 +215,21 @@ fun SPassConverterApp(viewModel: ConverterViewModel = viewModel()) {
                         setDataAndType(uri, "text/csv")
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     }
+                    (context as? MainActivity)?.markAppInitiatedExternalNavigation()
                     context.startActivity(Intent.createChooser(intent, null))
                 }
             )
             else -> UploadScreen(
                 state = state,
-                password = password,
-                onPasswordChange = { password = it },
+                password = state.password,
+                onPasswordChange = { viewModel.setPassword(it) },
                 passwordVisible = passwordVisible,
                 onTogglePasswordVisibility = { passwordVisible = !passwordVisible },
-                onConvert = { viewModel.convert(password) },
-                onSelectFile = { filePicker.launch(arrayOf("*/*")) }
+                onConvert = { viewModel.convert() },
+                onSelectFile = {
+                    (context as? MainActivity)?.markAppInitiatedExternalNavigation()
+                    filePicker.launch(arrayOf("*/*"))
+                }
             )
         }
 

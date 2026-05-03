@@ -1,0 +1,4 @@
+• Fixed Sam's Club passwords showing wrong website URL
+• Fixed CSV files appearing empty when opened after saving
+• Fixed passwords occasionally remaining in memory after leaving the app
+• CSV output now includes UTF-8 BOM for correct display in Excel and Google Sheets
