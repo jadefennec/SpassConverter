@@ -27,9 +27,9 @@ Without those properties the build compiles and produces an unsigned release APK
 
 - Google Play Console: uploaded, blocked on 12-tester closed-testing requirement.
 - F-Droid: metadata prepared, submission pending.
-- Sideload: `C:\Users\HP\Downloads\SPASS Converter.apk`
+- Sideload: install release APK directly on device.
 
-Release keystore: `C:/Users/HP/Coding Projects/Android Key Stores/Spass Converter/Spass Converter Key`
+Release keystore path and signing credentials are in `local.properties` (gitignored).
 
 ---
 

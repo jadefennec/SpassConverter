@@ -12,6 +12,7 @@ val keystoreProperties = Properties().apply {
 
 val hasSigningConfig = keystoreProperties.containsKey("RELEASE_STORE_FILE") &&
     keystoreProperties.containsKey("RELEASE_STORE_PASSWORD") &&
+    keystoreProperties.containsKey("RELEASE_KEY_ALIAS") &&
     keystoreProperties.containsKey("RELEASE_KEY_PASSWORD")
 
 android {
@@ -22,7 +23,7 @@ android {
             create("release") {
                 storeFile = file(keystoreProperties["RELEASE_STORE_FILE"] as String)
                 storePassword = keystoreProperties["RELEASE_STORE_PASSWORD"] as String
-                keyAlias = "spassconverter-key (password is the main strong one)"
+                keyAlias = keystoreProperties["RELEASE_KEY_ALIAS"] as String
                 keyPassword = keystoreProperties["RELEASE_KEY_PASSWORD"] as String
             }
         }
