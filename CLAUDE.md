@@ -65,3 +65,14 @@ Suggested note format:
 - [Claude] Fixed build.gradle.kts: moved hardcoded keystore path into `local.properties` as `RELEASE_STORE_FILE`; made entire signing config conditional on that key being present. Enables clean builds on F-Droid servers and other machines without the keystore.
 - [Claude] Added MIT LICENSE file — required for F-Droid listing.
 - [Claude] Added fastlane metadata under `fastlane/metadata/android/en-US/` — F-Droid uses this for app store listing display.
+
+### 2026-05-27
+- [Claude] Moved `keyAlias` from build.gradle.kts into `local.properties` as `RELEASE_KEY_ALIAS`; added to `hasSigningConfig` guard — no signing info in any committed file now.
+- [Claude] Cleaned CLAUDE.md: removed machine-specific keystore path and sideload APK path.
+- [Claude] Full SEO/AEO pass: 20 GitHub topics via API, keyword-rich repo description, homepage set to Pages URL.
+- [Claude] Added README.md (lead sentence, badges, feature list, output table, step-by-step guide, FAQ, keyword footer) and CITATION.cff.
+- [Claude] Built full GitHub Pages site in docs/: index.html landing page (JSON-LD MobileApplication + FAQPage), samsung-pass-to-google.html (HowTo schema), open-spass-file.html (Article + FAQPage), faq.html (FAQPage with 16 questions), privacy.html, terms.html, favicon.svg, og-image.svg (1200×630).
+- [Claude] AI/LLM files: llms.txt + llms-full.txt (llmstxt.org format with canonical answer block), robots.txt (explicitly allows 20+ AI crawlers + GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.), sitemap.xml (github.io URLs only), humans.txt, .well-known/security.txt, .nojekyll.
+- [Claude] Pushed; Pages live at https://stanley-projects.github.io/SpassConverter/ (HTTP 200 on first poll).
+- [Claude] IndexNow submitted 4 URLs to api.indexnow.org — HTTP 202 Accepted.
+- [Claude] Social preview PNG rendered via headless Edge → C:\Users\HP\Downloads\SpassConverter-social-preview.png (161 KB).
