@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — SPASS Converter</title>
+  <meta name="description" content="SPASS Converter privacy policy. All conversion happens on-device. No data is ever transmitted, collected, or shared."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://stanley-projects.github.io/SpassConverter/privacy.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2em auto; padding: 0 1.25em; line-height: 1.7; color: #1a1a1a; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.1em; margin-top: 1.75em; }
+    p, ul { margin: 0.5em 0; }
+    li { margin: 0.3em 0; }
+    a { color: #0d9488; }
+    nav { margin-bottom: 2em; font-size: 0.9em; }
+    nav a { margin-right: 1.5em; }
+    footer { margin-top: 3em; font-size: 0.85em; color: #666; border-top: 1px solid #eee; padding-top: 1em; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="./">← SPASS Converter</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+
+  <h1>Privacy Policy — SPASS Converter</h1>
+  <p><strong>Last updated:</strong> February 2026</p>
+
+  <h2>Overview</h2>
+  <p>SPASS Converter is an Android app that converts Samsung Pass export files (.spass) to CSV format. This policy describes how the app handles your data.</p>
+
+  <h2>Data Processing</h2>
+  <ul>
+    <li><strong>Local processing only:</strong> All conversion happens on your device. Your Samsung Pass export file and password are processed entirely on-device using Android's built-in cryptography.</li>
+    <li><strong>No transmission:</strong> No data, files, or passwords are ever sent off your device. The app does not use the internet or any network connection. Every network permission is explicitly removed in the app manifest.</li>
+    <li><strong>No collection or storage:</strong> We do not collect, store, or share any of your data with third parties. We do not operate servers that receive your information. We do not use analytics, crash reporting, or tracking of any kind.</li>
+    <li><strong>Temporary files:</strong> When you tap "preview" to open the CSV in another app, a temporary file is created in the app's private cache. It is deleted when you leave the app or convert another file. Other apps cannot access this cache.</li>
+    <li><strong>Memory hygiene:</strong> Your Samsung Pass password, decrypted file contents, and generated CSV are zeroed from memory as soon as you leave the app.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <p>SPASS Converter requests only the permissions required to read and write files:</p>
+  <ul>
+    <li>Storage read — to open the .spass file you select</li>
+    <li>Storage write — to save the output CSV to your chosen location</li>
+  </ul>
+  <p>No internet, location, contacts, camera, microphone, or any other sensitive permissions are used or requested.</p>
+
+  <h2>Open Source</h2>
+  <p>The app is fully open source under the MIT License. You can review all data handling in the source code at <a href="https://github.com/stanley-projects/SpassConverter">github.com/stanley-projects/SpassConverter</a>.</p>
+
+  <h2>Contact</h2>
+  <p>For privacy questions, contact: <a href="mailto:spassconverter@gmail.com">spassconverter@gmail.com</a></p>
+
+  <footer>
+    <a href="./">SPASS Converter</a> · <a href="terms.html">Terms of Service</a> · <a href="https://github.com/stanley-projects/SpassConverter">GitHub</a>
+  </footer>
+</body>
+</html>

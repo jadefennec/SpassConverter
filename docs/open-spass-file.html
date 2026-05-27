@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Open a .spass File — Convert Samsung Pass Export to CSV</title>
+  <meta name="description" content="A .spass file is an AES-256 encrypted Samsung Pass export. Learn what it contains, why you can't open it normally, and how to convert it to a readable CSV with SPASS Converter."/>
+  <meta name="keywords" content="open spass file, spass file format, what is spass file, spass to csv, samsung pass export file, spass file android, how to read spass file, spass decrypt"/>
+  <meta name="author" content="Stanley"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <meta name="theme-color" content="#0d9488"/>
+  <link rel="canonical" href="https://stanley-projects.github.io/SpassConverter/open-spass-file.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://stanley-projects.github.io/SpassConverter/open-spass-file.html"/>
+  <meta property="og:title" content="How to Open a .spass File — Convert Samsung Pass Export to CSV"/>
+  <meta property="og:description" content="A .spass file is AES-256 encrypted. Learn what it is and how to convert it to CSV with SPASS Converter — 100% on-device."/>
+  <meta property="og:image" content="https://stanley-projects.github.io/SpassConverter/og-image.svg"/>
+  <meta property="og:site_name" content="SPASS Converter"/>
+
+  <!-- JSON-LD: Article + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Open a .spass File — Convert Samsung Pass Export to CSV",
+    "description": "A .spass file is an AES-256 encrypted export from Samsung Pass. This article explains what the format is and how to convert it to a readable CSV using SPASS Converter.",
+    "author": { "@type": "Person", "name": "Stanley" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SPASS Converter",
+      "url": "https://stanley-projects.github.io/SpassConverter/"
+    },
+    "url": "https://stanley-projects.github.io/SpassConverter/open-spass-file.html",
+    "mainEntityOfPage": "https://stanley-projects.github.io/SpassConverter/open-spass-file.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a .spass file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A .spass file is a password export file created by Samsung Pass. It contains your saved passwords, credit cards, addresses, and notes from Samsung Pass, encrypted with AES-256-CBC using a key derived from your Samsung Pass password via PBKDF2-SHA256."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I open a .spass file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You cannot open a .spass file with a text editor or spreadsheet app — it is AES-256 encrypted. Use SPASS Converter, a free open-source Android app that decrypts the file on-device using your Samsung Pass password and converts it to a standard CSV file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I open a .spass file on a PC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not directly. The .spass format is proprietary to Samsung Pass on Android. You need to use SPASS Converter on your Android device to decrypt and convert it first, then transfer the resulting CSV to your PC."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0e1a; --surface: #111827; --surface-2: #1a2234; --border: #1f2937;
+      --accent: #0d9488; --accent-light: #14b8a6; --accent-dim: rgba(13,148,136,0.12);
+      --text: #f1f5f9; --text-muted: #94a3b8; --text-dim: #64748b;
+      --radius: 12px; --radius-sm: 8px; --max: 780px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Consolas, monospace; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+    pre { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; margin: 1rem 0; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,14,26,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 1.5rem; }
+    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text-muted); font-size: 0.88rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: white; padding: 0.4rem 0.9rem; border-radius: var(--radius-sm); font-size: 0.86rem; font-weight: 600; }
+    .btn:hover { background: var(--accent-light); text-decoration: none; }
+
+    .page-header { padding: 3.5rem 1.5rem 2.5rem; max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--text-dim); }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .page-meta { color: var(--text-muted); font-size: 0.92rem; }
+
+    .content { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 5rem; }
+    h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.8rem; letter-spacing: -0.01em; color: var(--text); }
+    h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--text-muted); }
+    p { margin-bottom: 1rem; color: var(--text-muted); font-size: 0.95rem; }
+    p strong { color: var(--text); }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; color: var(--text-muted); font-size: 0.94rem; }
+    li { margin-bottom: 0.4rem; }
+
+    .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+    .info-box h3 { margin-top: 0; color: var(--text); }
+    .callout { background: var(--accent-dim); border: 1px solid rgba(13,148,136,0.3); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.92rem; color: var(--text-muted); }
+    .callout strong { color: var(--accent-light); }
+
+    .format-table { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--surface-2); }
+    th, td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { font-weight: 600; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr:last-child td { border-bottom: none; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-dim); font-size: 0.88rem; }
+    .footer-copy { color: var(--text-dim); font-size: 0.85rem; }
+
+    @media (max-width: 600px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="./" style="color:var(--text);">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="#0d9488"/><path d="M16 5L23 8.5V15.5C23 20.2 19.8 24.4 16 26C12.2 24.4 9 20.2 9 15.5V8.5L16 5Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M13 16L15.2 18.2L19 13.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SPASS Converter
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="samsung-pass-to-google.html">Import Guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="./">SPASS Converter</a> › Open .spass File</div>
+  <h1>How to Open a .spass File</h1>
+  <p class="page-meta">What the format is, why it's encrypted, and how to convert it to CSV</p>
+</div>
+
+<div class="content">
+
+  <h2>What is a .spass file?</h2>
+  <p>A <code>.spass</code> file is an <strong>encrypted password export</strong> created by the Samsung Pass app on Samsung Galaxy devices. When you export your saved passwords from Samsung Pass (Settings → Export passwords), Samsung writes all your credentials to a single <code>.spass</code> file and encrypts it with your Samsung Pass password before saving it to your device storage.</p>
+  <p>The file contains your saved:</p>
+  <ul>
+    <li>Website and app passwords (username + password + URL)</li>
+    <li>Credit card numbers (partial: first six digits, last four, expiry)</li>
+    <li>Addresses (name, street, city, state, country, phone, email)</li>
+    <li>Secure notes (title + details)</li>
+  </ul>
+
+  <h2>Why can't I open a .spass file normally?</h2>
+  <p>The file is encrypted — its contents are unreadable without the Samsung Pass password. If you try to open it in a text editor, you'll see Base64-encoded gibberish. No file manager, spreadsheet app, or standard import tool can read it directly.</p>
+
+  <div class="info-box">
+    <h3>Technical format details</h3>
+    <p style="margin-bottom:0.6rem">For those curious, the <code>.spass</code> file structure is:</p>
+    <ul style="font-size:0.9rem">
+      <li>The entire payload is Base64-encoded</li>
+      <li>Decoded structure: <code>[20-byte PBKDF2 salt] [16-byte AES IV] [AES-256-CBC ciphertext]</code></li>
+      <li>Key derivation: PBKDF2-HMAC-SHA256, 70,000 iterations, 256-bit output</li>
+      <li>Cipher: AES-256-CBC with PKCS5 padding</li>
+      <li>Plaintext: semicolon-delimited rows with Base64-encoded field values, separated by <code>next_table</code> section markers</li>
+    </ul>
+  </div>
+
+  <h2>How to open and convert a .spass file</h2>
+  <p>The only way to read a <code>.spass</code> file is to decrypt it with the correct Samsung Pass password. <strong>SPASS Converter</strong> does exactly that — it's a free, open-source Android app built specifically for this purpose.</p>
+
+  <div class="callout">
+    <strong>Privacy:</strong> SPASS Converter has no internet access. Decryption happens entirely in memory on your device using Android's built-in AES implementation. Your password and decrypted data are never transmitted anywhere.
+  </div>
+
+  <ol>
+    <li>Download <a href="https://github.com/stanley-projects/SpassConverter/releases">SPASS Converter from GitHub Releases</a> and install the APK</li>
+    <li>Open the app and select your <code>.spass</code> file</li>
+    <li>Enter your Samsung Pass password</li>
+    <li>Tap Convert — the app shows a summary of all decrypted entries</li>
+    <li>Tap Save CSV to export to a file you can open anywhere</li>
+  </ol>
+
+  <p style="margin-top:1rem"><a href="samsung-pass-to-google.html">→ Full step-by-step import guide</a></p>
+
+  <h2>What the output CSV looks like</h2>
+  <p>SPASS Converter produces a standard CSV with one section per data type. The password section column order (<code>name, url, username, password, note</code>) matches the Google Password Manager / Chrome import format exactly.</p>
+
+  <div class="format-table">
+    <table>
+      <thead><tr><th>Section</th><th>Columns</th></tr></thead>
+      <tbody>
+        <tr><td>Passwords</td><td><code>name, url, username, password, note</code></td></tr>
+        <tr><td>Addresses</td><td><code>full_name, company_name, street_address, city, state, zipcode, country_code, phone_number, email</code></td></tr>
+        <tr><td>Credit cards</td><td><code>name_on_card, first_six_digits, last_four_digits, expiry_month, expiry_year</code></td></tr>
+        <tr><td>Notes</td><td><code>title, details</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Can I open a .spass file on a PC?</h2>
+  <p>Not directly — the <code>.spass</code> format is proprietary to Samsung Pass on Android. There is no official Samsung tool to open it on Windows or Mac. SPASS Converter runs on Android, so you convert it on your phone first and then transfer the resulting CSV to your computer.</p>
+
+  <h2>Is it safe to use a third-party app to decrypt my passwords?</h2>
+  <p>SPASS Converter is <a href="https://github.com/stanley-projects/SpassConverter">fully open source (MIT License)</a> — you can read every line of the decryption and conversion code. The app has no internet permissions (verifiable in the <a href="https://github.com/stanley-projects/SpassConverter/blob/master/app/src/main/AndroidManifest.xml">AndroidManifest.xml</a>), no analytics, no crash reporting, and no third-party SDKs. Sensitive data is zeroed from memory when you leave the app.</p>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download SPASS Converter</a>
+    <a href="samsung-pass-to-google.html" style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 0.9rem;border-radius:var(--radius-sm);font-size:0.86rem">Full import guide →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="samsung-pass-to-google.html">Import Guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://github.com/stanley-projects/SpassConverter">GitHub</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2025 Stanley · SPASS Converter</div>
+  </div>
+</footer>
+
+</body>
+</html>

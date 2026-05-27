@@ -1,0 +1,17 @@
+/* TEAM */
+Developer: Stanley
+Contact: spassconverter [at] gmail [dot] com
+GitHub: https://github.com/stanley-projects
+Location: United States
+
+/* SITE */
+Last update: 2026-05-27
+Language: English
+Standards: HTML5, Schema.org, Open Graph
+Components: Pure HTML/CSS, no external dependencies
+
+/* PROJECT */
+Name: SPASS Converter
+Description: Free, open-source Android app to convert Samsung Pass .spass exports to CSV
+License: MIT
+Repository: https://github.com/stanley-projects/SpassConverter

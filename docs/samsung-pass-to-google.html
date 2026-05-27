@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Import Samsung Pass Passwords into Google Password Manager — Step-by-Step Guide</title>
+  <meta name="description" content="Step-by-step guide to convert Samsung Pass .spass export to CSV and import into Google Password Manager or Chrome. Works with Bitwarden and 1Password too. 100% offline."/>
+  <meta name="keywords" content="import samsung pass to google password manager, convert samsung pass to chrome, samsung pass to bitwarden, samsung pass csv export, spass to google passwords, migrate samsung pass, samsung pass migration guide"/>
+  <meta name="author" content="Stanley"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <meta name="theme-color" content="#0d9488"/>
+  <link rel="canonical" href="https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html"/>
+  <meta property="og:title" content="How to Import Samsung Pass Passwords into Google Password Manager"/>
+  <meta property="og:description" content="Complete step-by-step guide. Export from Samsung Pass, convert with SPASS Converter, import into Google Password Manager. 100% offline."/>
+  <meta property="og:image" content="https://stanley-projects.github.io/SpassConverter/og-image.svg"/>
+  <meta property="og:site_name" content="SPASS Converter"/>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Import Samsung Pass Passwords into Google Password Manager",
+    "description": "Convert your Samsung Pass .spass export to CSV using SPASS Converter, then import into Google Password Manager. All steps happen on your device — no internet required.",
+    "totalTime": "PT5M",
+    "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+    "supply": [
+      { "@type": "HowToSupply", "name": "Android device with Samsung Pass installed" },
+      { "@type": "HowToSupply", "name": "SPASS Converter app (free, open source)" }
+    ],
+    "tool": [
+      { "@type": "HowToTool", "name": "SPASS Converter Android app" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Export your passwords from Samsung Pass",
+        "text": "Open Samsung Pass on your Galaxy device. Tap the three-dot menu or go to Settings. Tap 'Export passwords'. Samsung will ask you to confirm with your fingerprint, PIN, or Samsung Pass password. A .spass file will be saved to your device storage.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-1"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Install and open SPASS Converter",
+        "text": "Download SPASS Converter from GitHub Releases and install the APK on your device. Open the app.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-2"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Select your .spass file",
+        "text": "Tap the file picker in SPASS Converter and navigate to where Samsung saved your .spass export file. Select it.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-3"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Enter your Samsung Pass password and convert",
+        "text": "Type the password you use to unlock Samsung Pass (not your Samsung account password). Tap Convert. The app decrypts the file on-device and shows a summary of the converted entries.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-4"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Save the CSV file",
+        "text": "Tap Save CSV and choose a location — Downloads, Google Drive, or any folder. Optionally tap the preview icon to review the CSV before saving.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-5"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Import into Google Password Manager",
+        "text": "On your computer, go to passwords.google.com. Click the Settings gear icon. Click Import passwords. Select your CSV file and click Import. Your passwords will appear in Google Password Manager and sync to Chrome across all your devices.",
+        "url": "https://stanley-projects.github.io/SpassConverter/samsung-pass-to-google.html#step-6"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0e1a; --surface: #111827; --surface-2: #1a2234; --border: #1f2937;
+      --accent: #0d9488; --accent-light: #14b8a6; --accent-dim: rgba(13,148,136,0.12);
+      --text: #f1f5f9; --text-muted: #94a3b8; --text-dim: #64748b;
+      --radius: 12px; --radius-sm: 8px; --max: 780px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Consolas, monospace; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,14,26,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 1.5rem; }
+    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text-muted); font-size: 0.88rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: white; padding: 0.4rem 0.9rem; border-radius: var(--radius-sm); font-size: 0.86rem; font-weight: 600; }
+    .btn:hover { background: var(--accent-light); text-decoration: none; }
+
+    .page-header { padding: 3.5rem 1.5rem 2.5rem; max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--text-dim); }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .page-meta { color: var(--text-muted); font-size: 0.92rem; }
+
+    .content { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 5rem; }
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 1rem; letter-spacing: -0.01em; padding-top: 0.5rem; }
+    h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.6rem; color: var(--text-muted); }
+    p { margin-bottom: 1rem; color: var(--text-muted); font-size: 0.95rem; }
+    p strong { color: var(--text); }
+
+    .step-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .step-block[id] { scroll-margin-top: 70px; }
+    .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .step-n { flex-shrink: 0; width: 38px; height: 38px; background: var(--accent-dim); border: 1px solid rgba(13,148,136,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-light); }
+    .step-title { font-weight: 700; font-size: 1rem; }
+    .step-body { color: var(--text-muted); font-size: 0.93rem; }
+    .step-body p { margin-bottom: 0.6rem; }
+    .step-body p:last-child { margin-bottom: 0; }
+    .step-body strong { color: var(--text); }
+
+    .callout { background: var(--accent-dim); border: 1px solid rgba(13,148,136,0.3); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.92rem; color: var(--text-muted); }
+    .callout strong { color: var(--accent-light); }
+
+    .compat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+    .compat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; font-size: 0.9rem; }
+    .compat-name { font-weight: 600; margin-bottom: 0.3rem; }
+    .compat-path { color: var(--text-muted); font-size: 0.83rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-dim); font-size: 0.88rem; }
+    .footer-copy { color: var(--text-dim); font-size: 0.85rem; }
+
+    @media (max-width: 600px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="./" style="color:var(--text);">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="#0d9488"/><path d="M16 5L23 8.5V15.5C23 20.2 19.8 24.4 16 26C12.2 24.4 9 20.2 9 15.5V8.5L16 5Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M13 16L15.2 18.2L19 13.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SPASS Converter
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="open-spass-file.html">Open .spass</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="./">SPASS Converter</a> › Import Guide</div>
+  <h1>How to Import Samsung Pass Passwords into Google Password Manager</h1>
+  <p class="page-meta">5 minutes · Free · Works on any Android Samsung Galaxy device</p>
+</div>
+
+<div class="content">
+  <p>Samsung Pass is a great password manager — until you want to switch. The <code>.spass</code> export format is proprietary and encrypted, meaning no standard tool can read it directly. <strong>SPASS Converter</strong> decrypts it on your device and converts it to the exact CSV format that Google Password Manager accepts. Here's how.</p>
+
+  <div class="callout">
+    <strong>Privacy note:</strong> Every step in this guide happens entirely on your device. SPASS Converter has no internet connection. Your passwords are never uploaded anywhere.
+  </div>
+
+  <h2 id="step-1">Step 1 — Export from Samsung Pass</h2>
+  <div class="step-block" id="step-1-block">
+    <div class="step-header"><div class="step-n">1</div><div class="step-title">Create the .spass export file</div></div>
+    <div class="step-body">
+      <p>Open <strong>Samsung Pass</strong> on your Galaxy device.</p>
+      <p>Tap the <strong>three-dot menu (⋮)</strong> in the top right, or go to <strong>Settings</strong>.</p>
+      <p>Tap <strong>"Export passwords"</strong> (or "Export data" depending on your Samsung Pass version).</p>
+      <p>Samsung will ask you to authenticate — use your fingerprint, PIN, or Samsung Pass password.</p>
+      <p>A <code>.spass</code> file will be saved to your device storage. Note where it's saved — typically <code>Downloads/</code> or a folder Samsung Pass creates.</p>
+    </div>
+  </div>
+
+  <h2 id="step-2">Step 2 — Install SPASS Converter</h2>
+  <div class="step-block" id="step-2-block">
+    <div class="step-header"><div class="step-n">2</div><div class="step-title">Download and install the free APK</div></div>
+    <div class="step-body">
+      <p>Go to <a href="https://github.com/stanley-projects/SpassConverter/releases">github.com/stanley-projects/SpassConverter/releases</a> on your phone.</p>
+      <p>Download the latest <code>app-release.apk</code>. Open it to install — Android will ask you to allow installs from this source once.</p>
+      <p>SPASS Converter is free and <a href="https://github.com/stanley-projects/SpassConverter">open source (MIT)</a>. No account, no sign-in.</p>
+    </div>
+  </div>
+
+  <h2 id="step-3">Step 3 — Select your .spass file</h2>
+  <div class="step-block" id="step-3-block">
+    <div class="step-header"><div class="step-n">3</div><div class="step-title">Open the .spass file in the app</div></div>
+    <div class="step-body">
+      <p>Open SPASS Converter and tap the <strong>file picker button</strong>.</p>
+      <p>Navigate to where Samsung saved your <code>.spass</code> file and select it. The app will show the filename and file size.</p>
+    </div>
+  </div>
+
+  <h2 id="step-4">Step 4 — Enter your password and convert</h2>
+  <div class="step-block" id="step-4-block">
+    <div class="step-header"><div class="step-n">4</div><div class="step-title">Decrypt and convert</div></div>
+    <div class="step-body">
+      <p>In the password field, enter the password you use to <strong>unlock Samsung Pass itself</strong>. This is <em>not</em> your Samsung account password — it's the PIN or password you set when you first configured Samsung Pass.</p>
+      <p>Tap <strong>Convert</strong>. The app decrypts the file on-device using AES-256 and shows a summary like <em>"12 passwords, 2 credit cards, 1 address"</em>.</p>
+      <p>If you see "Wrong password" — double-check you're entering the Samsung Pass password, not your Samsung or Google account password.</p>
+    </div>
+  </div>
+
+  <h2 id="step-5">Step 5 — Save the CSV</h2>
+  <div class="step-block" id="step-5-block">
+    <div class="step-header"><div class="step-n">5</div><div class="step-title">Preview and save</div></div>
+    <div class="step-body">
+      <p>Optionally tap the <strong>preview icon</strong> to open the CSV in a spreadsheet app and verify it looks correct before saving.</p>
+      <p>Tap <strong>Save CSV</strong> and choose where to save it — Downloads, Google Drive, or any folder. The file is saved with a UTF-8 BOM so it opens correctly in Excel and Google Sheets.</p>
+      <p>Note the save location — you'll need the file in the next step.</p>
+    </div>
+  </div>
+
+  <h2 id="step-6">Step 6 — Import into Google Password Manager</h2>
+  <div class="step-block" id="step-6-block">
+    <div class="step-header"><div class="step-n">6</div><div class="step-title">Upload to passwords.google.com</div></div>
+    <div class="step-body">
+      <p>On a computer (or transfer the CSV to your computer first), go to <a href="https://passwords.google.com">passwords.google.com</a>.</p>
+      <p>Click the <strong>Settings ⚙️</strong> icon (top right).</p>
+      <p>Click <strong>Import passwords</strong>.</p>
+      <p>Select your CSV file and click <strong>Import</strong>.</p>
+      <p>Your passwords will sync to Chrome on all your devices within a few minutes.</p>
+    </div>
+  </div>
+
+  <h2>Importing into other password managers</h2>
+  <p>The same CSV works with other popular tools:</p>
+  <div class="compat-grid">
+    <div class="compat-card">
+      <div class="compat-name">Bitwarden</div>
+      <div class="compat-path">Web vault → Tools → Import data → Google Chrome (CSV)</div>
+    </div>
+    <div class="compat-card">
+      <div class="compat-name">1Password</div>
+      <div class="compat-path">File → Import → 1Password or Generic CSV</div>
+    </div>
+    <div class="compat-card">
+      <div class="compat-name">KeePass</div>
+      <div class="compat-path">File → Import → Generic CSV</div>
+    </div>
+    <div class="compat-card">
+      <div class="compat-name">Dashlane</div>
+      <div class="compat-path">My Account → Import → CSV</div>
+    </div>
+  </div>
+
+  <h2>Troubleshooting</h2>
+  <h3>"Wrong password" error</h3>
+  <p>You're entering your <strong>Samsung account</strong> password instead of your <strong>Samsung Pass</strong> password. Samsung Pass has a separate password you set when you first configured it — it's the one you enter when Samsung Pass asks you to authenticate instead of using biometrics.</p>
+  <h3>The .spass file doesn't appear in the file picker</h3>
+  <p>Samsung Pass may have saved the file to its own private folder. Try going to Samsung Pass → Settings → Export again and this time choose a location in your <strong>Downloads</strong> folder explicitly.</p>
+  <h3>App passwords show as "android://..."</h3>
+  <p>SPASS Converter resolves 100+ common package names automatically. For apps not in the built-in list, the URL will show as the raw package identifier — you can edit those manually after importing.</p>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download SPASS Converter</a>
+    <a href="faq.html" style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 0.9rem;border-radius:var(--radius-sm);font-size:0.86rem">More FAQs →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="open-spass-file.html">Open .spass File</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://github.com/stanley-projects/SpassConverter">GitHub</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2025 Stanley · SPASS Converter</div>
+  </div>
+</footer>
+
+</body>
+</html>

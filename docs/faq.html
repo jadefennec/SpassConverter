@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ — SPASS Converter: Samsung Pass .spass to CSV</title>
+  <meta name="description" content="Answers to common questions about SPASS Converter: how to import Samsung Pass passwords, what the .spass format is, privacy, compatibility with Google Password Manager and Bitwarden, and more."/>
+  <meta name="keywords" content="spass converter faq, samsung pass questions, spass file help, samsung pass to google password manager questions, samsung pass migration help, spass decrypt help"/>
+  <meta name="author" content="Stanley"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <meta name="theme-color" content="#0d9488"/>
+  <link rel="canonical" href="https://stanley-projects.github.io/SpassConverter/faq.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://stanley-projects.github.io/SpassConverter/faq.html"/>
+  <meta property="og:title" content="FAQ — SPASS Converter"/>
+  <meta property="og:description" content="Answers to common questions about importing Samsung Pass passwords and converting .spass files."/>
+  <meta property="og:image" content="https://stanley-projects.github.io/SpassConverter/og-image.svg"/>
+  <meta property="og:site_name" content="SPASS Converter"/>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I import Samsung Pass passwords into Google Password Manager?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Export from Samsung Pass (Settings → Export passwords) to get a .spass file. Open SPASS Converter, select the file, enter your Samsung Pass password, tap Convert. Save the CSV. Then go to passwords.google.com → Settings → Import passwords and upload the CSV." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I import Samsung Pass passwords into Chrome?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Convert your .spass file to CSV with SPASS Converter. In Chrome on desktop, go to Settings → Autofill and passwords → Google Password Manager → Settings → Import passwords. Upload your CSV." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I open a .spass file?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A .spass file is AES-256 encrypted. You cannot open it with a text editor. Use SPASS Converter on Android to decrypt it with your Samsung Pass password and export the contents to a standard CSV." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does SPASS Converter upload my passwords to the internet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. SPASS Converter has no internet access at all. Every network permission is explicitly blocked in the app manifest. All decryption and conversion happen entirely in memory on your device." }
+      },
+      {
+        "@type": "Question",
+        "name": "What password do I enter in SPASS Converter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Enter the password you use to unlock Samsung Pass itself — not your Samsung account password. It is the PIN, password, or biometric fallback you set when you first configured Samsung Pass on your device." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I import Samsung Pass passwords into Bitwarden?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. In the Bitwarden web vault go to Tools → Import data → Google Chrome (CSV) and upload the CSV produced by SPASS Converter." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I import Samsung Pass passwords into 1Password?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. In 1Password use File → Import → 1Password or Generic CSV format and map the columns during import." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Samsung Pass export a .spass file instead of a CSV?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Samsung encrypts the export file to protect your credentials in case someone else gains access to your device storage. The encryption is AES-256-CBC with a key derived from your Samsung Pass password using PBKDF2-SHA256." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do app passwords get the correct website URLs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes for 100+ common apps. Samsung stores app credentials with Android package names (like com.instagram.android). SPASS Converter maps these to real website URLs automatically for Instagram, WhatsApp, Netflix, Spotify, Amazon, TikTok, Cash App, and many more." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SPASS Converter free and open source?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free, no ads, no in-app purchases, MIT licensed. Source code is at github.com/stanley-projects/SpassConverter." }
+      },
+      {
+        "@type": "Question",
+        "name": "What Android version does SPASS Converter require?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Android 8.0 (API level 26) or higher. This covers all Samsung Galaxy devices that support Samsung Pass." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I open a .spass file on a PC?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not directly. The .spass format requires Android and Samsung Pass to decrypt. Use SPASS Converter on your Android device to convert it first, then transfer the resulting CSV to your PC." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0e1a; --surface: #111827; --surface-2: #1a2234; --border: #1f2937;
+      --accent: #0d9488; --accent-light: #14b8a6; --accent-dim: rgba(13,148,136,0.12);
+      --text: #f1f5f9; --text-muted: #94a3b8; --text-dim: #64748b;
+      --radius: 12px; --radius-sm: 8px; --max: 780px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Consolas, monospace; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,14,26,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 1.5rem; }
+    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text-muted); font-size: 0.88rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: white; padding: 0.4rem 0.9rem; border-radius: var(--radius-sm); font-size: 0.86rem; font-weight: 600; }
+    .btn:hover { background: var(--accent-light); text-decoration: none; }
+
+    .page-header { padding: 3.5rem 1.5rem 2.5rem; max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--text-dim); }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .page-meta { color: var(--text-muted); font-size: 0.92rem; }
+
+    .content { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 5rem; }
+    h2 { font-size: 1.15rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--accent-light); }
+
+    .faq-list { display: grid; gap: 0.75rem; }
+    details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details[open] { border-color: rgba(13,148,136,0.4); }
+    summary { padding: 1.1rem 1.5rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.96rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.2rem; color: var(--accent-light); flex-shrink: 0; transition: transform 0.2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-answer { padding: 0 1.5rem 1.2rem; color: var(--text-muted); font-size: 0.93rem; line-height: 1.7; border-top: 1px solid var(--border); }
+    .faq-answer a { color: var(--accent-light); }
+    .faq-answer code { font-size: 0.87em; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-dim); font-size: 0.88rem; }
+    .footer-copy { color: var(--text-dim); font-size: 0.85rem; }
+
+    @media (max-width: 600px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="./" style="color:var(--text);">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="#0d9488"/><path d="M16 5L23 8.5V15.5C23 20.2 19.8 24.4 16 26C12.2 24.4 9 20.2 9 15.5V8.5L16 5Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M13 16L15.2 18.2L19 13.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SPASS Converter
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="samsung-pass-to-google.html">Import Guide</a>
+      <a href="open-spass-file.html">Open .spass</a>
+      <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="./">SPASS Converter</a> › FAQ</div>
+  <h1>Frequently Asked Questions</h1>
+  <p class="page-meta">Answers about Samsung Pass migration, .spass files, and SPASS Converter</p>
+</div>
+
+<div class="content">
+
+  <h2>Importing &amp; migrating passwords</h2>
+  <div class="faq-list">
+    <details open>
+      <summary>How do I import Samsung Pass passwords into Google Password Manager?</summary>
+      <div class="faq-answer">Export from Samsung Pass (⚙️ Settings → <strong>Export passwords</strong>) to get a <code>.spass</code> file. Open SPASS Converter, select the file, enter your Samsung Pass password, tap <strong>Convert</strong>. Save the CSV. Then go to <a href="https://passwords.google.com">passwords.google.com</a> → ⚙️ Settings → <strong>Import passwords</strong> → choose your CSV. <a href="samsung-pass-to-google.html">Full step-by-step guide →</a></div>
+    </details>
+    <details>
+      <summary>How do I import Samsung Pass passwords into Chrome?</summary>
+      <div class="faq-answer">Convert with SPASS Converter first. Then in Chrome on desktop: Settings → Autofill and passwords → Google Password Manager → ⚙️ Settings → <strong>Import passwords</strong>. Upload the CSV. Your passwords will sync across all Chrome devices automatically.</div>
+    </details>
+    <details>
+      <summary>Can I import into Bitwarden instead of Google?</summary>
+      <div class="faq-answer">Yes. In the Bitwarden web vault: <strong>Tools → Import data → Google Chrome (CSV)</strong>. The password column layout (<code>name, url, username, password, note</code>) matches Bitwarden's Chrome import format exactly.</div>
+    </details>
+    <details>
+      <summary>Can I import into 1Password?</summary>
+      <div class="faq-answer">Yes. In 1Password use <strong>File → Import</strong> and select <strong>1Password</strong> or <strong>Generic CSV</strong> format. You may need to map columns during import.</div>
+    </details>
+    <details>
+      <summary>Can I import into KeePass or Dashlane?</summary>
+      <div class="faq-answer">Yes — both support generic CSV import. In KeePass: File → Import → Generic CSV. In Dashlane: My Account → Import passwords → CSV. Map the columns as needed.</div>
+    </details>
+  </div>
+
+  <h2>The .spass file format</h2>
+  <div class="faq-list">
+    <details>
+      <summary>What is a .spass file?</summary>
+      <div class="faq-answer">A <code>.spass</code> file is an encrypted password export created by Samsung Pass on Samsung Galaxy devices. It contains your saved passwords, credit cards, addresses, and notes, encrypted with AES-256-CBC using a key derived from your Samsung Pass password. <a href="open-spass-file.html">More about the .spass format →</a></div>
+    </details>
+    <details>
+      <summary>How do I open a .spass file?</summary>
+      <div class="faq-answer">You cannot open it with a text editor or spreadsheet app — it is AES-256 encrypted. SPASS Converter is built to decrypt it using your Samsung Pass password and export the contents as a standard CSV.</div>
+    </details>
+    <details>
+      <summary>Can I open a .spass file on a PC?</summary>
+      <div class="faq-answer">Not directly. The <code>.spass</code> format is proprietary to Samsung Pass on Android. Use SPASS Converter on your Android device to convert it first, then transfer the resulting CSV to your computer.</div>
+    </details>
+    <details>
+      <summary>Why does Samsung export as .spass instead of CSV?</summary>
+      <div class="faq-answer">Samsung encrypts the export to protect your credentials in case someone accesses your device storage. The encryption uses AES-256-CBC with PBKDF2-SHA256 key derivation (70,000 iterations, 256-bit key). It's strong encryption — only your Samsung Pass password can decrypt it.</div>
+    </details>
+  </div>
+
+  <h2>Privacy &amp; security</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Does SPASS Converter upload my passwords to the internet?</summary>
+      <div class="faq-answer">No. SPASS Converter has absolutely no internet access. <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>BLUETOOTH</code>, <code>NFC</code>, and all other network permissions are explicitly removed in the app manifest using <code>tools:node="remove"</code>. This is verifiable in the <a href="https://github.com/stanley-projects/SpassConverter/blob/master/app/src/main/AndroidManifest.xml">open-source AndroidManifest.xml</a>.</div>
+    </details>
+    <details>
+      <summary>What happens to my password and data after conversion?</summary>
+      <div class="faq-answer">Your Samsung Pass password, the raw file bytes, and the decrypted CSV are all <strong>zeroed from memory</strong> as soon as you leave the app. The app uses Android's <code>onUserLeaveHint</code> lifecycle callback to detect when you navigate away and clears all sensitive state immediately.</div>
+    </details>
+    <details>
+      <summary>Does the app use analytics or crash reporting?</summary>
+      <div class="faq-answer">No. There are no analytics SDKs, crash reporting libraries, or any third-party code that could send data anywhere. The only dependencies are standard AndroidX / Jetpack Compose components from Google.</div>
+    </details>
+    <details>
+      <summary>Is the source code auditable?</summary>
+      <div class="faq-answer">Yes — it's fully open source under the MIT License at <a href="https://github.com/stanley-projects/SpassConverter">github.com/stanley-projects/SpassConverter</a>. The decryption code is in <code>SPassDecryptor.kt</code> and you can verify every claim on this page yourself.</div>
+    </details>
+  </div>
+
+  <h2>Usage &amp; troubleshooting</h2>
+  <div class="faq-list">
+    <details>
+      <summary>What password do I enter in the app?</summary>
+      <div class="faq-answer">Enter the password you use to <strong>unlock Samsung Pass itself</strong> — not your Samsung account password, not your phone PIN. It's the password you set when you first configured Samsung Pass, which Samsung Pass asks for when it can't use biometrics.</div>
+    </details>
+    <details>
+      <summary>I get "Wrong password" — what should I do?</summary>
+      <div class="faq-answer">Make sure you're entering your <strong>Samsung Pass password</strong>, not your Samsung account password or phone lock PIN. If you've forgotten your Samsung Pass password, you'll need to recover it through Samsung's account recovery — SPASS Converter cannot bypass encryption.</div>
+    </details>
+    <details>
+      <summary>Do app passwords (Instagram, WhatsApp, etc.) get correct URLs?</summary>
+      <div class="faq-answer">Yes for 100+ common apps. Samsung Pass stores app credentials with Android package names (e.g. <code>com.instagram.android</code>) instead of URLs. SPASS Converter maps these to real website URLs automatically — Instagram, WhatsApp, Netflix, Spotify, Amazon, TikTok, Cash App, Signal, Robinhood, Discord, and many more. For unlisted apps, the raw package name is preserved.</div>
+    </details>
+    <details>
+      <summary>The CSV looks garbled in Excel — how do I fix it?</summary>
+      <div class="faq-answer">SPASS Converter adds a UTF-8 BOM (Byte Order Mark) to the CSV output, which tells Excel to read it as UTF-8. If you're still seeing issues, try opening the file via Excel's Data → From Text/CSV and selecting UTF-8 encoding manually.</div>
+    </details>
+    <details>
+      <summary>What Android version do I need?</summary>
+      <div class="faq-answer">Android 8.0 (API 26) or higher — which covers all Samsung Galaxy devices that support Samsung Pass.</div>
+    </details>
+    <details>
+      <summary>Is SPASS Converter on the Play Store?</summary>
+      <div class="faq-answer">Not yet — it's currently available as a direct APK download from <a href="https://github.com/stanley-projects/SpassConverter/releases">GitHub Releases</a>. F-Droid submission is also planned. Installing from GitHub requires enabling "Install unknown apps" once for your browser or file manager.</div>
+    </details>
+  </div>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="https://github.com/stanley-projects/SpassConverter/releases" class="btn">↓ Download SPASS Converter</a>
+    <a href="samsung-pass-to-google.html" style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 0.9rem;border-radius:var(--radius-sm);font-size:0.86rem">Step-by-step import guide →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="samsung-pass-to-google.html">Import Guide</a>
+      <a href="open-spass-file.html">Open .spass File</a>
+      <a href="https://github.com/stanley-projects/SpassConverter">GitHub</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2025 Stanley · SPASS Converter</div>
+  </div>
+</footer>
+
+</body>
+</html>

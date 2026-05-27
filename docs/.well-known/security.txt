@@ -1,0 +1,7 @@
+Contact: mailto:spassconverter@gmail.com
+Expires: 2027-05-27T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://stanley-projects.github.io/SpassConverter/.well-known/security.txt
+
+# SPASS Converter is open source — security issues can also be reported
+# via GitHub Issues at https://github.com/stanley-projects/SpassConverter/issues
