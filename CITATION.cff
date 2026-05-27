@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use or reference this software, please cite it as below."
+type: software
+title: "SPASS Converter"
+abstract: >
+  An offline Android app that decrypts Samsung Pass .spass password export files
+  and converts them to a standard CSV format compatible with Google Password Manager,
+  Chrome, Bitwarden, 1Password, and other password managers. All decryption and
+  conversion happens entirely on-device; no data ever leaves the phone.
+authors:
+  - family-names: Stanley
+    given-names: ""
+repository-code: "https://github.com/stanley-projects/SpassConverter"
+url: "https://stanley-projects.github.io/SpassConverter/"
+license: MIT
+version: "1.0.1"
+date-released: "2025-04-25"
+keywords:
+  - samsung-pass
+  - spass
+  - password-migration
+  - password-manager
+  - google-password-manager
+  - android
+  - kotlin
+  - offline
+  - privacy
+  - csv
