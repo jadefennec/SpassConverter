@@ -91,6 +91,11 @@ cd SpassConverter
 ./gradlew assembleRelease   # unsigned APK — no local.properties needed
 ```
 
+The same build runs automatically for pushes to `master` and pull requests. To
+start one manually, open the repository's **Actions** tab, select **Build
+Android app**, and choose **Run workflow**. Each successful run publishes the
+release APK as the `spass-converter-release` artifact.
+
 For a signed release, add to `local.properties` (this file is gitignored):
 ```
 RELEASE_STORE_FILE=/path/to/your.keystore
