@@ -82,3 +82,4 @@ Suggested note format:
 - [Copilot] Removed the machine-specific `org.gradle.java.home` override from `gradle.properties` so local and GitHub Actions builds use the configured Java runtime.
 - [Copilot] Removed the obsolete `build-release.bat` helper, which hardcoded the retired Android Studio JDK path and duplicated the GitHub Actions release build.
 - [Copilot] Reintroduced release signing after the initial signing change was reverted: validate the PKCS#12 keystore before Gradle, use a runner-temporary path, and verify the resulting APK with `apksigner`.
+- [Copilot] Made signing mandatory for pushes and manual runs; pull requests intentionally publish a separately named unsigned validation artifact because GitHub withholds secrets from forked PRs.

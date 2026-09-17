@@ -46,11 +46,11 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Configure release signing
-        if: ${{ github.event_name != 'pull_request' && (env.RELEASE_KEYSTORE_BASE64 != '' || env.RELEASE_STORE_PASSWORD != '' || env.RELEASE_KEY_ALIAS != '' || env.RELEASE_KEY_PASSWORD != '') }}
+        if: ${{ github.event_name != 'pull_request' }}
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$RELEASE_STORE_PASSWORD" || -z "$RELEASE_KEY_ALIAS" || -z "$RELEASE_KEY_PASSWORD" ]]; then
+          if [[ -z "$RELEASE_KEYSTORE_BASE64" || -z "$RELEASE_STORE_PASSWORD" || -z "$RELEASE_KEY_ALIAS" || -z "$RELEASE_KEY_PASSWORD" ]]; then
             echo "All four release signing secrets must be configured together." >&2
             exit 1
           fi
@@ -78,6 +78,6 @@ jobs:
       - name: Upload release APK
         uses: actions/upload-artifact@v4
         with:
-          name: spass-converter-release
+          name: spass-converter-${{ github.event_name == 'pull_request' && 'unsigned-validation' || 'signed-release' }}
           path: app/build/outputs/apk/release/*.apk
           if-no-files-found: error
