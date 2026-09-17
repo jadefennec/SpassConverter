@@ -76,3 +76,6 @@ Suggested note format:
 - [Claude] Pushed; Pages live at https://stanley-projects.github.io/SpassConverter/ (HTTP 200 on first poll).
 - [Claude] IndexNow submitted 4 URLs to api.indexnow.org — HTTP 202 Accepted.
 - [Claude] Social preview PNG rendered via headless Edge → C:\Users\HP\Downloads\SpassConverter-social-preview.png (161 KB).
+
+### 2026-09-17
+- [Copilot] Added `.github/workflows/build.yml` to build the unsigned release APK on pushes, pull requests, or manual dispatch, and upload it as a workflow artifact. Documented manual runs in README.md.
