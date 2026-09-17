@@ -84,3 +84,4 @@ Suggested note format:
 - [Copilot] Reintroduced release signing after the initial signing change was reverted: validate the PKCS#12 keystore before Gradle, use a runner-temporary path, and verify the resulting APK with `apksigner`.
 - [Copilot] Made signing mandatory for pushes and manual runs; pull requests intentionally publish a separately named unsigned validation artifact because GitHub withholds secrets from forked PRs.
 - [Copilot] Escaped backslashes in signing values written to `local.properties`; Java properties parsing otherwise changed the configured PKCS#12 password before Gradle used it.
+- [Copilot] Removed the UTF-8 BOM from `CsvExporter` output because Google Password Manager rejects the BOM-prefixed header as an invalid CSV; also quote carriage returns in CSV field values to avoid malformed rows.
