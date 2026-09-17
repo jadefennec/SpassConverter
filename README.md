@@ -96,13 +96,25 @@ start one manually, open the repository's **Actions** tab, select **Build
 Android app**, and choose **Run workflow**. Each successful run publishes the
 release APK as the `spass-converter-release` artifact.
 
-For a signed release, add to `local.properties` (this file is gitignored):
+For a local signed release, add to `local.properties` (this file is gitignored):
 ```
 RELEASE_STORE_FILE=/path/to/your.keystore
 RELEASE_STORE_PASSWORD=yourpassword
 RELEASE_KEY_ALIAS=youralias
 RELEASE_KEY_PASSWORD=yourkeypassword
 ```
+
+The GitHub Actions workflow signs release builds on non-fork events when all
+four repository secrets are configured:
+
+- `RELEASE_KEYSTORE_BASE64` - the PKCS#12 keystore encoded with `base64`
+- `RELEASE_STORE_PASSWORD`
+- `RELEASE_KEY_ALIAS`
+- `RELEASE_KEY_PASSWORD`
+
+The workflow validates the keystore before Gradle runs and verifies the
+resulting APK with `apksigner`. Pull requests from forks continue to produce
+unsigned APKs because GitHub does not expose repository secrets to them.
 
 ---
 

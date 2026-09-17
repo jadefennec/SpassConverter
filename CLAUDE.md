@@ -81,3 +81,4 @@ Suggested note format:
 - [Copilot] Added `.github/workflows/build.yml` to build the unsigned release APK on pushes, pull requests, or manual dispatch, and upload it as a workflow artifact. Documented manual runs in README.md.
 - [Copilot] Removed the machine-specific `org.gradle.java.home` override from `gradle.properties` so local and GitHub Actions builds use the configured Java runtime.
 - [Copilot] Removed the obsolete `build-release.bat` helper, which hardcoded the retired Android Studio JDK path and duplicated the GitHub Actions release build.
+- [Copilot] Reintroduced release signing after the initial signing change was reverted: validate the PKCS#12 keystore before Gradle, use a runner-temporary path, and verify the resulting APK with `apksigner`.
