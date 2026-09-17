@@ -21,7 +21,7 @@ Samsung Pass lets you export your saved passwords as an encrypted `.spass` file 
 - 📋 Exports **passwords, credit cards, addresses, and notes** to separate CSV sections
 - ✅ Password CSV column order matches the **Google Password Manager** import format exactly
 - 🌐 Resolves Android app package names to real website URLs (100+ known apps)
-- 📊 UTF-8 BOM in output for correct display in Excel and Google Sheets
+- 📊 Plain UTF-8 CSV output stays compatible with Google Password Manager and spreadsheet apps
 - 🧹 Sensitive data (password, decrypted CSV) zeroed from memory on app leave
 - 🎨 Material 3 UI, dark mode, tablet / foldable support — Android 8.0 (API 26)+
 
