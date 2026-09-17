@@ -94,7 +94,9 @@ cd SpassConverter
 The same build runs automatically for pushes to `master` and pull requests. To
 start one manually, open the repository's **Actions** tab, select **Build
 Android app**, and choose **Run workflow**. Each successful run publishes the
-release APK as the `spass-converter-release` artifact.
+release APK as the `spass-converter-release` artifact. Pull requests build an
+unsigned APK; trusted pushes and manual runs sign it when the repository's
+release-signing secrets are configured.
 
 For a signed release, add to `local.properties` (this file is gitignored):
 ```
@@ -103,6 +105,17 @@ RELEASE_STORE_PASSWORD=yourpassword
 RELEASE_KEY_ALIAS=youralias
 RELEASE_KEY_PASSWORD=yourkeypassword
 ```
+
+To enable signing in GitHub Actions, add these repository secrets using the
+same developer keystore and values:
+
+- `ANDROID_KEYSTORE_BASE64` — base64-encoded keystore file
+- `ANDROID_KEYSTORE_PASSWORD`
+- `ANDROID_KEY_ALIAS`
+- `ANDROID_KEY_PASSWORD`
+
+Signing is intentionally skipped for pull requests so secrets are never exposed
+to untrusted fork code.
 
 ---
 
