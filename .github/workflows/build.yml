@@ -61,11 +61,14 @@ jobs:
             -keystore "$keystore" \
             -storepass "$RELEASE_STORE_PASSWORD" \
             -alias "$RELEASE_KEY_ALIAS" >/dev/null
+          escape_property() {
+            printf '%s' "$1" | sed 's/\\/\\\\/g'
+          }
           {
             printf 'RELEASE_STORE_FILE=%s\n' "$keystore"
-            printf 'RELEASE_STORE_PASSWORD=%s\n' "$RELEASE_STORE_PASSWORD"
-            printf 'RELEASE_KEY_ALIAS=%s\n' "$RELEASE_KEY_ALIAS"
-            printf 'RELEASE_KEY_PASSWORD=%s\n' "$RELEASE_KEY_PASSWORD"
+            printf 'RELEASE_STORE_PASSWORD=%s\n' "$(escape_property "$RELEASE_STORE_PASSWORD")"
+            printf 'RELEASE_KEY_ALIAS=%s\n' "$(escape_property "$RELEASE_KEY_ALIAS")"
+            printf 'RELEASE_KEY_PASSWORD=%s\n' "$(escape_property "$RELEASE_KEY_PASSWORD")"
           } > "$GITHUB_WORKSPACE/local.properties"
 
       - name: Build release APK
